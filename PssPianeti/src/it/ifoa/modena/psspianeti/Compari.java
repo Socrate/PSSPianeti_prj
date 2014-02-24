@@ -1,11 +1,16 @@
 package it.ifoa.modena.psspianeti;
 
+
+import android.os.Parcel;
+import android.os.Parcelable;
+
+
 /**
  * Oggetto che mi rappresenta i dati di una persona, un contatto.
  * @author Sawzar
  *
  */
-public class Compari {
+public class Compari implements Parcelable {
 	/*Costante di classe (cioè statica che mi rappresenta la imageView di default 
 	 * nel caso non venga specificata un'immagine diversa tramite un id nel costruttore*/
 	private static final int IMG=R.drawable.unknown_m;
@@ -92,8 +97,41 @@ public class Compari {
 	public String getTelefono() {
 		return telefono;
 	}
+
+	@Override
+	public int describeContents() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public void writeToParcel(Parcel out, int flag) {
+		// TODO Auto-generated method stub
+		out.writeString(nome);
+		out.writeString(cognome);
+		out.writeString(mail);
+		out.writeString(telefono);
+		out.writeInt(risorsa);
+		
+	}
 	
-	
-	
+	public static final Parcelable.Creator<Compari> CREATOR = new Parcelable.Creator<Compari>() {
+		public Compari createFromParcel(Parcel in) {
+			return new Compari(in);
+		}
+
+		public Compari[] newArray(int size) {
+			return new Compari[size];
+		}
+	};
+
+	private Compari(Parcel in) {
+		// leggo gli attributi
+		nome = in.readString();
+		cognome=in.readString();
+		mail=in.readString();
+		telefono=in.readString();
+		risorsa = in.readInt();
+	}
 
 }

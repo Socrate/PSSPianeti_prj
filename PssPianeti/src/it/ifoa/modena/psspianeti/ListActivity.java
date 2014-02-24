@@ -74,12 +74,11 @@ public class ListActivity extends Activity {
 				/*ora si potrebbe richiamare un'altra activity per la visualizzazione 
 				 * delle informazioni di dettaglio */
 				
-				/*
-				Intent i = new Intent(ListActivity.this, Compari.class);
-				i.putExtra("name", p.getName());
-				i.putExtra("imageID", p.getImageResource());
+				
+				Intent i = new Intent(ListActivity.this, DetailActivity.class);
+				i.putExtra("persona", p);
 				startActivity(i);
-		*/
+		
 		
 		
 	}});}

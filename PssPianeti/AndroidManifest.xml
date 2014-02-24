@@ -26,6 +26,10 @@
             android:name="it.ifoa.modena.psspianeti.ListActivity"
             android:label="@string/title_activity_list" >
         </activity>
+        <activity
+            android:name="it.ifoa.modena.psspianeti.DetailActivity"
+            android:label="@string/title_activity_detail" >
+        </activity>
     </application>
 
 </manifest>
